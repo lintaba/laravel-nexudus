@@ -1,0 +1,20 @@
+<?php
+
+namespace Lintaba\LaravelNexudus;
+
+use Illuminate\Support\ServiceProvider;
+
+class NexudusServiceProvider extends ServiceProvider
+{
+
+    /**
+     * Register the service provider.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->app->singleton(Nexudus::class, fn () => new Nexudus());
+        $this->app->alias(Nexudus::class, 'nexudus');
+    }
+}
